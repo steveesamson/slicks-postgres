@@ -7,9 +7,13 @@ Inspired by **`Codeigniter Active Record`**.
 slicks-postgres takes the following options:
 
 **`host`:**postgresql host server.
+
 **`user`:**valid postgresql database user.
+
 **`password`:**password for the database user above.
+
 **`database`:**instance database you want to connect.
+
 **`debug_db`:** could be `true/false`. `debug_db` enables the logging of the raw queries to the console when it is set to *true*, useful while developing.
 
 ## Installation
