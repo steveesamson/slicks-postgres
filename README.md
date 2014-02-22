@@ -4,8 +4,13 @@ slicks-postgres allows the expressive writing of database queries and routines f
 Inspired by **`Codeigniter Active Record`**.
 
 ##slicks-postgres options
-slicks-postgres takes all the options/config allowed by `node-postgres`. Please see https://www.npmjs.org/package/pg for details. It also has, in addition, `debug_db` option which could be `true/false`. `debug_db` enables the logging of the raw queries to the console when it is set to *true*, useful while developing.
+slicks-postgres takes the following options:
 
+**`host`:**postgresql host server.
+**`user`:**valid postgresql database user.
+**`password`:**password for the database user above.
+**`database`:**instance database you want to connect.
+**`debug_db`:** could be `true/false`. `debug_db` enables the logging of the raw queries to the console when it is set to *true*, useful while developing.
 
 ## Installation
 
@@ -505,7 +510,42 @@ Same as below:
 
 
 ##Test
-Before running the tests, load the included script **test_scripts.sql** onto your postgres database. Ensure to load the script as 'root' for you need to grant privileges. Thereafter, run;
+Before running the tests, connect to your postgres database and run the following:
+
+```sql
+
+        CREATE USER tester WITH PASSWORD 'tester';
+
+        CREATE DATABASE todo OWNER = tester;
+```
+
+Then connect to the created database, 'todo' like so:
+
+
+```sql
+
+    \c todo
+```
+
+And run these in the order of appearance:
+
+```sql
+
+        CREATE TABLE todu (
+          id serial PRIMARY KEY,
+          task varchar(50) NOT NULL,
+          status int2 NOT NULL DEFAULT 0,
+          created_date date NOT NULL DEFAULT CURRENT_DATE,
+          task_owner int2 NOT NULL
+        );
+
+        CREATE TABLE task_owners (
+          id serial PRIMARY KEY,
+          name varchar(50) NOT NULL
+        );
+```
+
+Thereafter, go to `slicks-postgres` and run;
 
 ```cli
     npm test

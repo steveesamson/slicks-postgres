@@ -8,8 +8,7 @@ var chai = require('chai'),
 //change the config appropriately for your database
     slicks_postgres = require('../dist/slicks-postgres')({
         host: 'localhost',
-        user: 'steve',
-        driver: 'postgres',
+        user: 'tester',
         database: 'todo',
         password: 'r00t'
 //        ,

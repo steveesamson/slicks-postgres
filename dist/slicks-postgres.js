@@ -15,7 +15,7 @@ module.exports = function (dbconfig) {
 
     var
 //        postgres://postgres:1234@localhost/postgres
-        config = "%s://%s:%s@%s/%s".format('tcp',dbconfig.user,dbconfig.password,dbconfig.host,dbconfig.database),
+        config = "tcp://%s:%s@%s/%s".format(dbconfig.user,dbconfig.password,dbconfig.host,dbconfig.database),
         connect = function (cb) {
             pool.connect(config, function (err, conn, release) {
                 if (err) {
