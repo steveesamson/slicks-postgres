@@ -1,0 +1,44 @@
+{
+  "name": "slicks-postgres",
+  "version": "0.0.0",
+  "description": "Allows the writing of expressive database queries for postgresql",
+  "main": "dist/slicks-postgres",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/steveesamson/slicks-postgres.git"
+  },
+  "keywords": [
+    "postgres",
+    "sql",
+    "pg",
+    "database",
+    "db",
+    "slicks",
+    "sliker",
+    "postgresql",
+    "node",
+    "javascript"
+  ],
+  "author": "Steve Samson <stevee.samson@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/steveesamson/slicks-postgres/issues"
+  },
+  "dependencies": {
+    "string-format-js": "~0.1.1",
+    "underscore": "~1.6.0",
+    "pg.js": "~2.11.1"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/steveesamson/slicks-postgres/blob/master/MIT-License.txt"
+    }
+  ],
+  "devDependencies": {
+    "mocha": "~1.17.1",
+    "chai": "~1.9.0"
+  }
+}
