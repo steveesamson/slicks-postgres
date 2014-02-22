@@ -10,7 +10,7 @@ var chai = require('chai'),
         host: 'localhost',
         user: 'tester',
         database: 'todo',
-        password: 'r00t'
+        password: 'tester'
 //        ,
 //        debug_db: true
     }),
