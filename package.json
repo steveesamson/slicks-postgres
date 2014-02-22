@@ -1,6 +1,6 @@
 {
   "name": "slicks-postgres",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Allows the writing of expressive database queries for postgresql",
   "main": "dist/slicks-postgres",
   "scripts": {
