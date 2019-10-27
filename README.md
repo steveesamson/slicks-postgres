@@ -1,20 +1,20 @@
-#slicks-postgres
+# slicks-postgres
 
 slicks-postgres allows the expressive writing of database queries and routines for PostgreSQL. slicks-postgres permit chaining, which is intuitive as you can nearly guess what should come next even if you are just getting started with slicks-postgres. slicks-postgres is not an ORM. It was developed to allow folks coming from relational databases background write expressive queries with object interactions in mind.
 Inspired by **`Codeigniter Active Record`**.
 
-##slicks-postgres options
+## slicks-postgres options
 slicks-postgres takes the following options:
 
-**`host`:**postgresql host server.
+** `host`:**postgresql host server.
 
-**`user`:**valid postgresql database user.
+** `user`:**valid postgresql database user.
 
-**`password`:**password for the database user above.
+** `password`:**password for the database user above.
 
-**`database`:**instance database you want to connect.
+** `database`:**instance database you want to connect.
 
-**`debug_db`:** could be `true/false`. `debug_db` enables the logging of the raw queries to the console when it is set to *true*, useful while developing.
+** `debug_db`:** could be `true/false`. `debug_db` enables the logging of the raw queries to the console when it is set to *true*, useful while developing.
 
 ## Installation
 
@@ -50,12 +50,12 @@ Using slicks-postgres is pure joy:
            });
 ```
 
-##slicks-postgres management
+## slicks-postgres management
 
 Now that we have a valid `db` object, how do we manage it? Well, all connections on `db` are automatically pooled, thus, to release a `db` object, it is done with `db.release()`; this returns the current connection on the `db` to the pool, however, to actually close the connection, use `db.destroy()`; this does the cleanup and closes the underlying connection to database.
 
 
-##`fetch`ing records
+## `fetch`ing records
 
 ```javascript
 
@@ -70,7 +70,7 @@ Now that we have a valid `db` object, how do we manage it? Well, all connections
 
 The above is used when all record fields are needed. However, if a subset of the fields are of interest, **`select`** with **`from`** and **`fetch`** is the way to go.
 
-##`select`ing records
+## `select`ing records
 
 ```javascript
 
@@ -84,7 +84,7 @@ The above is used when all record fields are needed. However, if a subset of the
          });
 ```
 
-##`query`ing records with `query`
+## `query`ing records with `query`
 
 ```javascript
 
@@ -99,7 +99,7 @@ The above is used when all record fields are needed. However, if a subset of the
 
 **Note:** The use of ONLY **`fetch`** or in conjunction with **`select`** and **`from`** does not change the outcome. I think it just depends on what flavour you like or the need at hand. That being said, all the examples are written in one or other flavour but what was done in one flavour can equally be done in the other flavour.
 
-###`where`
+### `where`
 ```javascript
 
      db.where('id', 1)
@@ -155,10 +155,10 @@ The above is used when all record fields are needed. However, if a subset of the
          });
 ```
 
-###`where`, `orWhere`, `whereIn`, `orWhereIn`, `whereNotIn`, `orWhereNotIn` conditions
+### `where`, `orWhere`, `whereIn`, `orWhereIn`, `whereNotIn`, `orWhereNotIn` conditions
 Please, note that all the variations that apply to **`where`** also apply to the following: `orWhere`, `whereIn`, `orWhereIn`, `whereNotIn`, `orWhereNotIn`.
 
-###`orWhere`
+### `orWhere`
 ```javascript
 
      db.where('id', 10)
@@ -171,7 +171,7 @@ Please, note that all the variations that apply to **`where`** also apply to the
          });
 ```
 
-###`whereIn`
+### `whereIn`
 
 ```javascript
 
@@ -186,7 +186,7 @@ Please, note that all the variations that apply to **`where`** also apply to the
     });
 ```
 
-###`orWhereIn`
+### `orWhereIn`
 
 ```javascript
 
@@ -202,7 +202,7 @@ Please, note that all the variations that apply to **`where`** also apply to the
     });
 ```
 
-###`whereNotIn`
+### `whereNotIn`
 
 ```javascript
 
@@ -217,7 +217,7 @@ Please, note that all the variations that apply to **`where`** also apply to the
     });
 ```
 
-###`orWhereNotIn`
+### `orWhereNotIn`
 
 ```javascript
 
@@ -233,7 +233,7 @@ Please, note that all the variations that apply to **`where`** also apply to the
     });
 ```
 
-###`like`
+### `like`
 
 Generates `task like %vacuum%` , **`b`** or **`both`**  for both ends are allowed.
 
@@ -250,7 +250,7 @@ Generates `task like %vacuum%` , **`b`** or **`both`**  for both ends are allowe
     });
 ```
 
-###`orLike`
+### `orLike`
 
 Generates `task like '%vacuum' or task like 'iron%'` , **`l`** or **`left`**  for left end are allowed, while **`r`** or **`right`**  for right end are allowed.
 
@@ -268,7 +268,7 @@ Generates `task like '%vacuum' or task like 'iron%'` , **`l`** or **`left`**  fo
     });
 ```
 
-###`notLike`
+### `notLike`
 
 Generates `task NOT like '%vacuum%'` , **`b`** or **`both`**  for both ends are allowed.
 
@@ -285,7 +285,7 @@ Generates `task NOT like '%vacuum%'` , **`b`** or **`both`**  for both ends are 
     });
 ```
 
-###`orNotLike`
+### `orNotLike`
 
 Generates `OR task NOT like '%dishes'` , **`l`** or **`left`**  for left end are allowed.
 
@@ -303,7 +303,7 @@ Generates `OR task NOT like '%dishes'` , **`l`** or **`left`**  for left end are
     });
 ```
 
-###`limit`
+### `limit`
 
 ```javascript
 
@@ -316,7 +316,7 @@ Generates `OR task NOT like '%dishes'` , **`l`** or **`left`**  for left end are
     });
 ```
 
-###`limit` with `offset`
+### `limit` with `offset`
 
 ```javascript
 
@@ -330,7 +330,7 @@ Generates `OR task NOT like '%dishes'` , **`l`** or **`left`**  for left end are
 ```
 
 
-###Select `distinct`
+### Select `distinct`
 
 ```javascript
 
@@ -346,7 +346,7 @@ Generates `OR task NOT like '%dishes'` , **`l`** or **`left`**  for left end are
     });
 ```
 
-###`orderBy (desc)`
+### `orderBy (desc)`
 
 ```javascript
 
@@ -359,7 +359,7 @@ Generates `OR task NOT like '%dishes'` , **`l`** or **`left`**  for left end are
     });
 ```
 
-###`orderBy ([asc])` the direction is optional if ascending order is desired
+### `orderBy ([asc])` the direction is optional if ascending order is desired
 
 ```javascript
 
@@ -385,7 +385,7 @@ Same as below:
     });
 ```
 
-###`join`ing tables
+### `join`ing tables
 
 ```javascript
 
@@ -401,7 +401,7 @@ Same as below:
     });
 ```
 
-###`groupBy` for aggregates
+### `groupBy` for aggregates
 
 ```javascript
 
@@ -417,7 +417,7 @@ Same as below:
     });
 ```
 
-###`having` for aggregates
+### `having` for aggregates
 
 ```javascript
 
@@ -434,7 +434,7 @@ Same as below:
     });
 ```
 
-###`orHaving` for aggregates
+### `orHaving` for aggregates
 
 ```javascript
 
@@ -452,9 +452,9 @@ Same as below:
     });
 ```
 
-##`insert`ing records
+## `insert`ing records
 
-###`insert`ing single record with `insert`
+### `insert`ing single record with `insert`
 
 ```javascript
 
@@ -466,7 +466,7 @@ Same as below:
     });
 ```
 
-###`insert`ing multiple records with `query`
+### `insert`ing multiple records with `query`
 
 ```javascript
 
@@ -485,7 +485,7 @@ Same as below:
 
 
 
-###`update`ing records
+### `update`ing records
 
 ```javascript
 
@@ -499,7 +499,7 @@ Same as below:
         });
 ```
 
-###`delete`ing records
+### `delete`ing records
 
 ```javascript
 
@@ -513,7 +513,7 @@ Same as below:
 ```
 
 
-##Test
+## Test
 Before running the tests, connect to your postgres database and run the following:
 
 ```sql
@@ -555,6 +555,4 @@ Thereafter, go to `slicks-postgres` and run;
     npm test
 ```
 
-## Release History
-* 0.1.0 Initial release
 
